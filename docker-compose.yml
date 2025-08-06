@@ -1,0 +1,31 @@
+services:
+  auth_service:
+    build: .
+    container_name: auth_service
+    # приложение слушает на 8001 внутри контейнера
+    expose:
+      - "8004"
+    volumes:
+      - .:/auth_service     # hot-reload в dev; убери в prod
+    environment:
+      # те же учётные данные, что и в основном Postgres-контейнере
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=db_auth            # ← новая БД
+      - DATABASE_URL=postgresql+asyncpg://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/db_auth
+      - SECRET_KEY=${SECRET_KEY}
+      - SALT=${SALT}
+    depends_on:
+      postgres:
+        condition: service_healthy   # ждём, пока healthcheck пройдёт
+    networks:
+      - database_network
+      - nginx_network
+
+networks:
+  database_network:
+    external: true
+  nginx_network:
+    external: true
