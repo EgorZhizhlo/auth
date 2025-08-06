@@ -27,5 +27,5 @@ async def shutdown() -> None:
     await engine.dispose()
 
 # — только auth-роутер —
-from api.routers.v1 import auth  # noqa
+from app.api.routers.v1 import auth  # noqa
 app.include_router(auth.router, prefix="/api/v1")
