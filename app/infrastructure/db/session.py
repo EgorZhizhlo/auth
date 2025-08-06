@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession,
 )
 
-from config.settings import settings  # SECRET, URL и т.п.
+from app.config.settings import settings  # SECRET, URL и т.п.
 
 # Асинхронный движок
 engine = create_async_engine(

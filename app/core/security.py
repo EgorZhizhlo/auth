@@ -5,8 +5,8 @@ from typing import Tuple, Dict
 from jose import jwt, JWTError
 from passlib.context import CryptContext
 
-from config.settings import settings
-from core.time_utils import utc_now
+from app.config.settings import settings
+from app.core.time_utils import utc_now
 
 # ── крипто-настройки ────────────────────────────────────────────
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
