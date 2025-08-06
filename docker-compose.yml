@@ -2,7 +2,8 @@ services:
   auth_service:
     build: .
     container_name: auth_service
-    # приложение слушает на 8001 внутри контейнера
+    ports:
+      - "8004:8004"
     expose:
       - "8004"
     volumes:
@@ -17,9 +18,6 @@ services:
       - DATABASE_URL=postgresql+asyncpg://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/db_auth
       - SECRET_KEY=${SECRET_KEY}
       - SALT=${SALT}
-    depends_on:
-      postgres:
-        condition: service_healthy   # ждём, пока healthcheck пройдёт
     networks:
       - database_network
       - nginx_network
