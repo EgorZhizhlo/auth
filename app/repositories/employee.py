@@ -4,8 +4,7 @@ from sqlalchemy import select, update, delete
 from sqlalchemy.orm import selectinload
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from models.employee import EmployeeModel
-from models.company import CompanyModel
+from app.models import EmployeeModel, CompanyModel
 
 
 class EmployeeRepository:

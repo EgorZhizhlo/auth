@@ -1,7 +1,7 @@
 from sqlalchemy import Column, DateTime, Boolean, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from core.time_utils import utc_now
-from infrastructure.db.base import Base
+from app.core.time_utils import utc_now
+from app.infrastructure.db.base import Base
 
 
 class RefreshTokenModel(Base):

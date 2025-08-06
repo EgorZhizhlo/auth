@@ -2,9 +2,9 @@ from typing import Optional
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from models.company import CompanyModel
-from repositories.company import CompanyRepository
-from schemas.company import CompanyCreate, CompanyUpdate
+from app.models import CompanyModel
+from app.repositories import CompanyRepository
+from app.schemas import CompanyCreate, CompanyUpdate
 
 
 class CompanyService:

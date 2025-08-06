@@ -1,7 +1,7 @@
 from sqlalchemy import Column, String, Boolean, DateTime, Integer
 from sqlalchemy.orm import relationship
-from infrastructure.db.base import Base
-from core.time_utils import utc_now
+from app.infrastructure.db.base import Base
+from app.core.time_utils import utc_now
 from .employees_companies import employees_companies
 
 

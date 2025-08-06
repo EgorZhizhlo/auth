@@ -5,8 +5,8 @@ from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.infrastructure.db.session import get_db
-from app.repositories.employee import EmployeeRepository
-from app.models.refresh_token import RefreshTokenModel
+from app.repositories import EmployeeRepository
+from app.models import RefreshTokenModel
 from app.core.security import (
     verify_password,
     create_access_token,
@@ -14,7 +14,7 @@ from app.core.security import (
     decode_token,
 )
 from app.core.time_utils import utc_now
-from app.schemas.auth import TokenPair
+from app.schemas import TokenPair
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 

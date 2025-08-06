@@ -2,10 +2,10 @@ from typing import Iterable, Optional
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from core.security import get_password_hash           # 🔑 хешируем пароли
-from models.employee import EmployeeModel
-from repositories.employee import EmployeeRepository
-from schemas.employee import EmployeeCreate, EmployeeUpdate
+from app.core.security import get_password_hash
+from app.models import EmployeeModel
+from app.repositories import EmployeeRepository
+from app.schemas import EmployeeCreate, EmployeeUpdate
 
 
 class EmployeeService:
