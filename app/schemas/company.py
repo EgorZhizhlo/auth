@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field, ConfigDict
 
 class _CompanyBase(BaseModel):
     name: str = Field(max_length=200)
-    inn: str = Field(max_length=12, regex=r"^\d{10,12}$")
+    inn: str = Field(max_length=12, pattern=r"^\d{10,12}$")
 
 
 class CompanyCreate(_CompanyBase):
@@ -15,7 +15,7 @@ class CompanyCreate(_CompanyBase):
 class CompanyUpdate(BaseModel):
     """Патч-обновление компании; все поля опциональны."""
     name: str | None = Field(None, max_length=200)
-    inn: str | None = Field(None, max_length=12, regex=r"^\d{10,12}$")
+    inn: str | None = Field(None, max_length=12, pattern=r"^\d{10,12}$")
     is_active: bool | None = None
 
 
